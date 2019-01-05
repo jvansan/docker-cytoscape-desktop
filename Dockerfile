@@ -1,7 +1,7 @@
 FROM selenium/standalone-chrome-debug:3.13.0
 
 # PARAMETERS
-ENV CYTOSCAPE_VERSION 3.7.0
+ENV CYTOSCAPE_VERSION 3.7.1
 
 # CHANGE USER
 USER root
