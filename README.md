@@ -18,7 +18,9 @@ docker exec cy x11vnc -display :99 -auth /root/.Xauth
 ```
 
 # Pull or Build
+
 You have the option of pulling the latest container from DockerHub,
+
 ```
 docker pull jvansan/cytoscape-desktop-headless:latest
 ```
@@ -27,16 +29,27 @@ or you can clone this repo, cd into it and build the container yourself
 
 ```
 docker build -t jvansan/cytoscape-desktop-headless .
+# or
+make build-docker tag
+```
+
+To publish to Dockerhub
+
+```
+docker login
+make all
 ```
 
 # Run
+
 ## Launch Cytoscape in Docker
+
 In a local terminal window, issue the following commands to run this docker container and launch Cytoscape:
 
 ```
 docker run --rm --name cy -v $HOME/cytoscape:/root/data -p 1234:1234 jvansan/cytoscape-desktop-headless:latest
 ```
- 
+
 _Pro-tip: Before shutting down the container, be sure to check that all your output files have indeed been saved locally._
 
 ## Interact
@@ -49,5 +62,5 @@ docker exec -it cy bash
 
 ### CyREST
 
-All interactions with Cytoscape should be made through CyREST, which 
+All interactions with Cytoscape should be made through CyREST, which
 is available at http://localhost:1234/v1 if you connect this port in Docker.
